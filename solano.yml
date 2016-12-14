@@ -1,0 +1,12 @@
+tests:
+- cat config/sunspot.yml
+- cat config/solr.yml
+- env | sort
+- netstat -plant
+- curl http://localhost:8393/solr/
+test_pattern:
+- none
+java:
+  java_version: java-8-oracle
+solr:
+  version: 6.0.0
