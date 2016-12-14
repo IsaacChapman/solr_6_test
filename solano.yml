@@ -3,7 +3,8 @@ tests:
 - cat config/solr.yml
 - env | sort
 - netstat -plant
-- curl http://localhost:8393/solr/
+- curl http://localhost:8983/solr/
+- sleep 600
 test_pattern:
 - none
 java:
