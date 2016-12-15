@@ -4,7 +4,7 @@ tests:
 - env | sort
 - netstat -plant
 - curl http://localhost:8983/solr/
-- sleep 600
+- sleep 120
 test_pattern:
 - none
 java:
