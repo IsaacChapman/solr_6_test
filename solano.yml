@@ -1,13 +1,16 @@
 tests:
-- cat config/sunspot.yml
-- cat config/solr.yml
+- cat config/elasticsearch.yml
 - env | sort
 - netstat -plant
-- curl http://localhost:8983/solr/
+- curl http://localhost:9200/
 - sleep 120
 test_pattern:
 - none
 java:
-  java_version: java-8-oracle
+  java_version: java-8-openjdk
+elasticsearch:
+  version: '5.0.1'
+  plugins:
+    - 'ingest-attachment'
 solr:
   version: 6.0.0
