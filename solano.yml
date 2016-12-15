@@ -8,6 +8,6 @@ tests:
 test_pattern:
 - none
 java:
-  java_version: java-8-oracle
+  java_version: java-7-oracle
 solr:
-  version: 6.0.0
+  version: 4.10.4
