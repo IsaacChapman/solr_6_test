@@ -3,6 +3,7 @@ tests:
 - env | sort
 - netstat -plant
 - curl http://localhost:9200/
+- find $HOME/es -type f | sort
 - sleep 120
 test_pattern:
 - none
@@ -12,5 +13,3 @@ elasticsearch:
   version: '5.0.1'
   plugins:
     - 'ingest-attachment'
-solr:
-  version: 6.0.0
