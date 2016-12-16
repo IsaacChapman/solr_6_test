@@ -1,7 +1,8 @@
 tests:
 - env | sort
 - mysql -u $TDDIUM_DB_MYSQL_USER -p$TDDIUM_DB_MYSQL_PASSWORD -e 'SELECT @@GLOBAL.sql_mode'
-- cat $HOME/db/mysql{TDDIUM_TID}/conf/my.cnf
+- cat $HOME/db/mysql${TDDIUM_TID}/conf/my.cnf
+- sleep 300
 mysql:
   version: '5.7'
   config:
