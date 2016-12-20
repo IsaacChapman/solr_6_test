@@ -1,11 +1,15 @@
 tests:
-- env | sort
-- mysql -u $TDDIUM_DB_MYSQL_USER -p$TDDIUM_DB_MYSQL_PASSWORD -e 'SELECT @@GLOBAL.sql_mode'
-- cat $HOME/db/mysql${TDDIUM_TID}/conf/my.cnf
-- sleep 300
-mysql:
-  version: '5.7'
-  config:
-    sql_mode: 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+  - git branch
 test_pattern:
-- none
+  - none
+notify:
+  - channel: email
+    branch: /^(?!epic-.*$)(?!master$)(?!production$)/
+    recipients: 'committers'
+    trigger_on: done
+    message: "branch did not match"
+  - channel: email
+    branch: /^(?epic-.*$)(?master$)(?production$)/
+    recipients: 'committers'
+    trigger_on: done
+    message: "branch matched"
