@@ -5,11 +5,16 @@ test_pattern:
 notify:
   - channel: email
     branch: /^(?!epic-.*$)(?!master$)(?!production$)/
-    recipients: 'committers'
-    trigger_on: done
+    recipients: committers
+    trigger-on: done
     message: "branch did not match"
   - channel: email
     branch: /^(?epic-.*$)(?master$)(?production$)/
-    recipients: 'committers'
-    trigger_on: done
+    recipients: committers
+    trigger-on: done
     message: "branch matched"
+  - channel: email
+    trigger-on: done
+    branch: production
+    message: "Congratulations, testing of %repo%'s %branch% branch finished in %duration% with %error-count% error(s) and %passed-count% success(es)"
+    recipients: committers
